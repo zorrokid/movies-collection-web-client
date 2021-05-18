@@ -1,6 +1,6 @@
-import { ADD_PUBLICATIONS, IAction } from '../actions/actionTypes';
 import { IPublication } from '../../models/publication';
 import { createReducer } from '@reduxjs/toolkit';
+import { addPublicationsAction } from '../actions/actions';
 
 interface IPublicationsState {
     publications: IPublication[],
@@ -12,10 +12,10 @@ const initialState : IPublicationsState = {
     test: []
 };
 
-const publicationsReducer = createReducer(initialState, {
-    ADD_PUBLICATIONS: (state, action) => {
-        state.test.push(action.payload.name)
-    }
+const publicationsReducer = createReducer(initialState, (builder) => {
+    builder.addCase(addPublicationsAction, (state, action) => {
+        state.publications = action.payload;
+    })
 });
 
 export default publicationsReducer;

@@ -1,8 +1,7 @@
-import { GET_PUBLICATIONS, IAction } from './actionTypes';
+import { createAction } from '@reduxjs/toolkit';
+import { ADD_PUBLICATIONS, GET_PUBLICATIONS } from './actionTypes';
+import { IPublication } from '../../models/publication';
 
-export const getPublicationsAction = movieName => ({
-    type: GET_PUBLICATIONS,
-    payload: {
-        movieName
-    }
-});
+export const getPublicationsAction = createAction(GET_PUBLICATIONS);
+
+export const addPublicationsAction = createAction<IPublication[]>(ADD_PUBLICATIONS);

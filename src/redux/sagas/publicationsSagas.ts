@@ -1,11 +1,12 @@
 import { call, put, takeEvery } from 'redux-saga/effects';
-import { ADD_PUBLICATIONS, GET_PUBLICATIONS } from '../actions/actionTypes';
+import { GET_PUBLICATIONS } from '../actions/actionTypes';
 import { fetchPublications } from '../../services/publicationsService';
+import { addPublicationsAction } from '../actions/actions';
 
 function* getPublications(action: any) {
     try {
         const publications = yield call(fetchPublications);
-        yield put({ type: ADD_PUBLICATIONS, payload: { publications }});
+        yield put(addPublicationsAction(publications));
     } catch (e) {
 
     }
