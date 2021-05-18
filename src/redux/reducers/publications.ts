@@ -2,7 +2,7 @@ import { IPublication } from '../../models/publication';
 import { createReducer } from '@reduxjs/toolkit';
 import { addPublicationsAction } from '../actions/actions';
 
-interface IPublicationsState {
+export interface IPublicationsState {
     publications: IPublication[],
     test: string[]
 }

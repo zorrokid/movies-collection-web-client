@@ -1,5 +1,9 @@
 import { combineReducers } from 'redux';
-import publicationsReducer from './publications';
+import publicationsReducer, { IPublicationsState } from './publications';
 
-export default combineReducers({ publicationsReducer });
+export interface IAppState {
+    mainContent: IPublicationsState
+}
+
+export default combineReducers({ mainContent: publicationsReducer });
 

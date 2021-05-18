@@ -1,5 +1,6 @@
 import { useDispatch } from "react-redux";
 import { ADD_PUBLICATIONS, GET_PUBLICATIONS } from "../redux/actions/actionTypes";
+import { Publications } from './Publications';
 
 const App = () => {
 
@@ -18,6 +19,7 @@ const App = () => {
             <h1>Movie App</h1>
             <button onClick={getPublications}>Get</button>
             <button onClick={addPublications}>Add</button>
+            <Publications />
         </>
     );
 }
