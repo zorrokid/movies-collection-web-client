@@ -20,7 +20,5 @@ export const PublicationSearch = () => {
         }
     }, [dispatchValue]);
 
-    return (
-        <SearchByNameField onChange={(e) => setSearchText(e.target.value)}/>
-    );
+    return <SearchByNameField onChange={(e) => setSearchText(e.target.value)} autoFocus />;
 }

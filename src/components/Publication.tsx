@@ -5,6 +5,9 @@ import { PublicationItems } from './PublicationItems';
 const ItemContainer = styled.div`
     width: 150px;
     margin: 10px;
+    background-color: DimGray;
+    padding: 5px;
+    font-size: 18px;
 `;
 
 const ItemContent = styled.div`

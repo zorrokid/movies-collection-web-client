@@ -7,6 +7,7 @@ const GlobalStyle = createGlobalStyle`
     body { 
         background-color: LightSlateGrey;
         color: Gainsboro;
+        font-family: Arial, Helvetica, sans-serif;
     }
 `;
 
