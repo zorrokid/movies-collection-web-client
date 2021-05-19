@@ -1,6 +1,7 @@
 import { IPublicationItem } from "./publicationItem";
 
 export interface IPublication {
+    id: number;
     originalTitle: string;
     localTitle: string;
     isVerified: boolean;

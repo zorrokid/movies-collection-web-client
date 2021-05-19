@@ -1,7 +1,6 @@
 import { call, put, takeEvery } from 'redux-saga/effects';
-import { GET_PUBLICATIONS } from '../actions/actionTypes';
 import { fetchPublications } from '../../services/publicationsService';
-import { addPublicationsAction } from '../actions/actions';
+import { addPublicationsAction, getPublicationsAction } from '../actions/actions';
 
 function* getPublications(action: any) {
     try {
@@ -13,7 +12,7 @@ function* getPublications(action: any) {
 }
 
 function* publicationsSaga() {
-    yield takeEvery(GET_PUBLICATIONS, getPublications);
+    yield takeEvery(getPublicationsAction().type, getPublications);
 }
 
 export default publicationsSaga;
