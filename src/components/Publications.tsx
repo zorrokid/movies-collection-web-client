@@ -3,19 +3,12 @@ import { useDispatch, useSelector } from 'react-redux'
 import styled from 'styled-components';
 import { getPublicationsAction } from '../redux/actions/actions';
 import { selectPublications } from '../redux/selectors/publicationsSelector';
+import { Publication } from './Publication';
 
 const ItemsContainer = styled.div`
     margin: 50px;
     display: flex;
     flex-wrap: wrap;
-`;
-
-const ItemContainer = styled.div`
-    width: 150px;
-    margin: 10px;
-`;
-
-const ItemContent = styled.div`
 `;
 
 export const Publications = () => {
@@ -29,12 +22,7 @@ export const Publications = () => {
 
     return (
         <ItemsContainer>
-            {publications.map((publication, index) => 
-                <ItemContainer key={index}>
-                    <ItemContent>{publication.originalTitle}</ItemContent>
-                    <ItemContent>{publication.localTitle}</ItemContent>
-                </ItemContainer>
-            )}
+            {publications.map((publication, index) => <Publication key={index} item={publication} />)}
         </ItemsContainer>
     );
 };
