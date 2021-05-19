@@ -4,7 +4,7 @@ import { addPublicationsAction, getPublicationsAction } from '../actions/actions
 
 function* getPublications(action: any) {
     try {
-        const publications = yield call(fetchPublications);
+        const publications = yield call(fetchPublications, action.payload);
         yield put(addPublicationsAction(publications));
     } catch (e) {
 
