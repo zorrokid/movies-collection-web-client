@@ -5,11 +5,15 @@ export const register : any = async (user: IUser)  => {
         method: 'POST',
         headers: {'Content-Type':'application/json'},
         body: JSON.stringify(user)
+    }).catch((err) => {
+        console.log('got error: ', JSON.stringify(err));
+        throw err;
     });
     
-    var responseJson = await response.json();
+    if (response.ok === false) {
+        var err = await response.json();
+        throw err;
+    }
 
-    console.log(responseJson);
-
-    return responseJson;
+    return await response.json();
 };

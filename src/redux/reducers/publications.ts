@@ -3,13 +3,11 @@ import { createReducer } from '@reduxjs/toolkit';
 import { addPublicationsAction } from '../actions/actions';
 
 export interface IPublicationsState {
-    publications: IPublication[],
-    test: string[]
+    publications: IPublication[]
 }
 
 const initialState : IPublicationsState = {
-    publications: [],
-    test: []
+    publications: []
 };
 
 const publicationsReducer = createReducer(initialState, (builder) => {

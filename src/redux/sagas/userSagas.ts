@@ -1,14 +1,15 @@
-import { call, takeEvery } from 'redux-saga/effects';
+import { call, put, takeEvery } from 'redux-saga/effects';
 import { register } from '../../services/userService';
-import { registerUserAction } from '../actions/actions';
+import { addErrorAction, endProcessRequestAction, registerUserAction, startProcessRequestAction } from '../actions/actions';
 
 function* registerUser(action: any) {
-    console.log('registerUser saga')
+    //yield put(startProcessRequestAction);
     try {
         yield call(register, action.payload);
     } catch (err) {
-        console.log(JSON.stringify(err))
+        yield put(addErrorAction(err))
     }
+    //yield put(endProcessRequestAction);
 }
 
 function* userSaga() {
