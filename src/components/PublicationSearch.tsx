@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { useDispatch } from 'react-redux'
 import { useDebounce } from 'use-debounce';
-import { getPublicationsAction } from "../redux/actions/actions";
+import { getPublicationsAction } from "../redux/actions/applicationActions";
 import { useEffect, useState } from "react";
 
 const SearchByNameField = styled.input`
@@ -13,6 +13,8 @@ export const PublicationSearch = () => {
 
     const [searchText, setSearchText] = useState('');
     const [dispatchValue] = useDebounce(searchText, 1000);
+
+    // usecallback-hook
     
     useEffect(() => {
         if (dispatchValue.length > 3) {

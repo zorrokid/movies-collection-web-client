@@ -1,6 +1,9 @@
 import { call, put, takeEvery } from 'redux-saga/effects';
 import { logIn, register } from '../../services/userService';
-import { addErrorAction, endProcessRequestAction, loginUserAction, registerUserAction, startProcessRequestAction } from '../actions/actions';
+import { loginUserAction, registerUserAction, addUserAction } from '../actions/userActions';
+import { addErrorAction, endProcessRequestAction, startProcessRequestAction } from '../actions/systemActions';
+import { ILoggedInUser } from '../../models/loggedinuser';
+import { history } from '../../routing/history';
 
 function* registerUser(action: any) {
     //yield put(startProcessRequestAction);
@@ -14,7 +17,10 @@ function* registerUser(action: any) {
 
 function* logInUser(action: any) {
     try {
-        yield call(logIn, action.payload)
+        const loggedInUser: ILoggedInUser = yield call(logIn, action.payload);
+        yield put(addUserAction(loggedInUser));
+        history.push('/');
+
     } catch (err) {
         yield put(addErrorAction(err));
     }

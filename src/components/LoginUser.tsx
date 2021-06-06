@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { loginUserAction } from "../redux/actions/actions";
+import { loginUserAction } from "../redux/actions/userActions";
 import { ILogIn } from '../models/login'
 
 export const LoginUser = () => {

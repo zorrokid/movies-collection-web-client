@@ -1,6 +1,6 @@
 import { call, put, takeLatest } from 'redux-saga/effects';
 import { fetchPublications } from '../../services/publicationsService';
-import { addPublicationsAction, getPublicationsAction } from '../actions/actions';
+import { addPublicationsAction, getPublicationsAction } from '../actions/applicationActions';
 
 function* getPublications(action: any) {
     const publications = yield call(fetchPublications, action.payload);

@@ -4,9 +4,11 @@ import { Publications } from './Publications';
 import { PublicationSearch } from './PublicationSearch';
 import { RegisterUser } from './RegisterUser';
 import { LoginUser } from './LoginUser';
-import { Link, Route } from "wouter";
 import { useSelector } from 'react-redux';
 import { selectError } from '../redux/selectors/systemSelectors';
+import { selectUser } from '../redux/selectors/userSelectors';
+import { Route, Link, Router, Switch } from 'react-router-dom';
+import { history } from '../routing/history';
 
 const GlobalStyle = createGlobalStyle`
     body { 
@@ -22,26 +24,39 @@ const AppContainer = styled.div`
 const Title = styled.h1`
 `;
 
+
 const App = () => {
 
     const error = useSelector(selectError);
+    const user = useSelector(selectUser);
 
     return (
-        <>
+        <Router history={history}>
             <GlobalStyle />
-            <Link href="/register">Register</Link>
-            <Link href="/login">Login</Link>
-            <Route path="/register" component={RegisterUser} />
-            <Route path="/login" component={LoginUser} />
+            {
+                !user && 
+                <>
+                    <Link to="/register">Register</Link>
+                    <Link to="/login">Login</Link>
+                </>
+            }
+            <Switch>
+                <Route path="/register">
+                    <RegisterUser />
+                </Route>
+                <Route path="/login">
+                    <LoginUser />
+                </Route>
+            </Switch>
             <AppContainer>
                 <Title>Movie App</Title>
                 {
-                    error !== undefined && <div>error: { error.Message }</div>
+                    error && <div>error: { error.Message }</div>
                 }
                 <PublicationSearch />
                 <Publications />
             </AppContainer>
-        </>
+        </Router>
     );
 }
     
