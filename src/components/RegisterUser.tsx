@@ -20,12 +20,10 @@ export const RegisterUser = () => {
             userName,
             password
         }
-        console.log('dispatch')
         dispatch(registerUserAction(user));
     };
 
-    const fieldsHaveData = firstName && lastName && userName && password; 
-    const missingData = !fieldsHaveData;
+    const missingData = !(firstName && lastName && userName && password);
 
     return (
         <>
