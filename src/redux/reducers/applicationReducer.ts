@@ -1,6 +1,6 @@
 import { IPublication } from '../../models/publication';
 import { createReducer } from '@reduxjs/toolkit';
-import { addPublicationsAction } from '../actions/actions';
+import { addPublicationsAction } from '../actions/applicationActions';
 
 export interface IPublicationsState {
     publications: IPublication[]

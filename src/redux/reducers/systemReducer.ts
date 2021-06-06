@@ -1,6 +1,6 @@
 import { createReducer } from "@reduxjs/toolkit";
 import { IError } from "../../models/error";
-import { addErrorAction, endProcessRequestAction, startProcessRequestAction } from "../actions/actions";
+import { addErrorAction, endProcessRequestAction, startProcessRequestAction } from "../actions/systemActions";
 
 export interface ISystemState {
     isProcessing: boolean;
