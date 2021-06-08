@@ -1,6 +1,6 @@
 export interface ILoggedInUser {
-    FirstName: string;
-    LastName: string;
-    UserName: string;
-    Token: string;
+    firstName: string;
+    lastName: string;
+    userName: string;
+    token: string;
 }
