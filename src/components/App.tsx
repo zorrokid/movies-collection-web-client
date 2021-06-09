@@ -4,11 +4,13 @@ import { Publications } from './Publications';
 import { PublicationSearch } from './PublicationSearch';
 import { RegisterUser } from './RegisterUser';
 import { LoginUser } from './LoginUser';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { selectError } from '../redux/selectors/systemSelectors';
 import { selectUser } from '../redux/selectors/userSelectors';
 import { Route, Link, Router, Switch } from 'react-router-dom';
 import { history } from '../routing/history';
+import { useEffect } from 'react';
+import { getUserFromStoreAction } from '../redux/actions/userActions';
 
 const GlobalStyle = createGlobalStyle`
     body { 
@@ -29,6 +31,11 @@ const App = () => {
 
     const error = useSelector(selectError);
     const user = useSelector(selectUser);
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(getUserFromStoreAction());
+    },[]);
 
     return (
         <Router history={history}>
