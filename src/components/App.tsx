@@ -3,7 +3,8 @@ import { createGlobalStyle } from 'styled-components'
 import { Publications } from './Publications';
 import { PublicationSearch } from './PublicationSearch';
 import { RegisterUser } from './RegisterUser';
-import { LoginUser } from './LoginUser';
+import { LogInUser } from './LogInUser';
+import { LogOutUser } from './LogOutUser';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectError } from '../redux/selectors/systemSelectors';
 import { selectUser } from '../redux/selectors/userSelectors';
@@ -44,15 +45,18 @@ const App = () => {
                 !user && 
                 <>
                     <Link to="/register">Register</Link>
-                    <Link to="/login">Login</Link>
+                    <Link to="/login">Log In</Link>
                 </>
+            }
+            {
+                user && <LogOutUser />
             }
             <Switch>
                 <Route path="/register">
                     <RegisterUser />
                 </Route>
                 <Route path="/login">
-                    <LoginUser />
+                    <LogInUser />
                 </Route>
             </Switch>
             <AppContainer>

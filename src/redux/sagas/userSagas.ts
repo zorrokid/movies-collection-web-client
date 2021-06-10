@@ -1,6 +1,6 @@
 import { call, put, takeEvery } from 'redux-saga/effects';
 import { logIn, register } from '../../services/userService';
-import { loginUserAction, registerUserAction, addUserAction, getUserFromStoreAction } from '../actions/userActions';
+import { logInUserAction, registerUserAction, addUserAction, getUserFromStoreAction, logOutUserAction } from '../actions/userActions';
 import { addErrorAction, endProcessRequestAction, startProcessRequestAction } from '../actions/systemActions';
 import { ILoggedInUser } from '../../models/loggedinuser';
 import { history } from '../../routing/history';
@@ -27,6 +27,12 @@ function* logInUser(action: any) {
     }
 }
 
+function* logOutUser(action: any) {
+    localStorage.removeItem('user');
+    yield put(addUserAction(undefined));
+    history.push('/');
+}
+
 function* getUserFromStore(action: any) {
     const userJson = localStorage.getItem('user');
     if (userJson) {
@@ -37,7 +43,8 @@ function* getUserFromStore(action: any) {
 
 function* userSaga() {
     yield takeEvery(registerUserAction().type, registerUser);
-    yield takeEvery(loginUserAction().type, logInUser);
+    yield takeEvery(logInUserAction().type, logInUser);
+    yield takeEvery(logOutUserAction().type, logOutUser);
     yield takeEvery(getUserFromStoreAction().type, getUserFromStore);
 }
 

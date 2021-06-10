@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { loginUserAction } from "../redux/actions/userActions";
+import { logInUserAction } from "../redux/actions/userActions";
 import { ILogIn } from '../models/login'
 
-export const LoginUser = () => {
+export const LogInUser = () => {
     const [userName, setUserName] = useState('');
     const [password, setPassword] = useState('');
     
@@ -16,7 +16,7 @@ export const LoginUser = () => {
             userName,
             password
         };
-        dispatch(loginUserAction(login));
+        dispatch(logInUserAction(login));
     };
 
     const missingData = !(userName && password);
