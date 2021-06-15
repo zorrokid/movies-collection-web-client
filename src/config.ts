@@ -1,9 +1,9 @@
 export interface IConfig {
-  baseUrl: string   
+  apiBaseUrl: string   
 };
 
 const config: IConfig = {
-    baseUrl: 'https://localhost:5001'
+    apiBaseUrl: 'http://localhost:5000'
 }
 
 export default config;
