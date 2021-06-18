@@ -7,7 +7,7 @@ export const fetchPublications : any = async (searchString: string, token: strin
     const init: RequestInit = {
         headers
     };
-    let url = new URL(`${config.baseUrl}//Publications`);
+    let url = new URL(`${config.apiBaseUrl}/Publications`);
     url.searchParams.set('search', searchString);
     const response = await fetch(url.toString(), init);
     return response.json();

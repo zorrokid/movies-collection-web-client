@@ -2,9 +2,9 @@ import { ILogIn } from "../models/login";
 import { IUser } from "../models/user";
 import config from '../config';
 
-export const register = async (user: IUser) => fetchAsync(`${config.baseUrl}/Users/register`, 'POST', JSON.stringify(user));
+export const register = async (user: IUser) => fetchAsync(`${config.apiBaseUrl}/Users/register`, 'POST', JSON.stringify(user));
 
-export const logIn = async (logIn: ILogIn) => fetchAsync(`${config.baseUrl}/Users/authenticate`, 'POST', JSON.stringify(logIn));
+export const logIn = async (logIn: ILogIn) => fetchAsync(`${config.apiBaseUrl}/Users/authenticate`, 'POST', JSON.stringify(logIn));
 
 
 const fetchAsync : any = async (url: string, method: string, jsonData: string) => {
