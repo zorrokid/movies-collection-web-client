@@ -4,7 +4,7 @@ import { selectPublications } from '../redux/selectors/publicationsSelector';
 import { Publication } from './Publication';
 
 const ItemsContainer = styled.div`
-    margin: 50px;
+    margin: 30px;
     display: flex;
     flex-wrap: wrap;
 `;

@@ -10,7 +10,7 @@ export interface IPublication {
     caseTypeName: string;
     conditionClassName: string;
     hasSlipCover: boolean;
-    gasHologram: boolean;
+    hasHologram: boolean;
     isRental: boolean;
     notes: string;
     hasTwoSidedCover: boolean;
