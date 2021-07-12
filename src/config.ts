@@ -3,7 +3,7 @@ export interface IConfig {
 };
 
 const config: IConfig = {
-    apiBaseUrl: 'http://localhost:5000'
+    apiBaseUrl: 'http://zorrokid-movie-api.herokuapp.com'
 }
 
 export default config;
