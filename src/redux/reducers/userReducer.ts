@@ -1,9 +1,9 @@
 import { createReducer } from "@reduxjs/toolkit";
-import { ILoggedInUser } from "../../models/loggedinuser";
+import { LoggedInUser } from "../../models/loggedinuser";
 import { addUserAction } from '../actions/userActions';
 
 export interface IUserState {
-    user: ILoggedInUser | undefined;
+    user: LoggedInUser | undefined;
 }
 
 const initialState: IUserState = {

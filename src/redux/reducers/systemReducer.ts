@@ -1,10 +1,10 @@
 import { createReducer } from "@reduxjs/toolkit";
-import { IError } from "../../models/error";
+import { Error } from "../../models/error";
 import { addErrorAction, endProcessRequestAction, startProcessRequestAction } from "../actions/systemActions";
 
 export interface ISystemState {
     isProcessing: boolean;
-    error: IError | undefined;
+    error: Error | undefined;
 }
 
 const initialState: ISystemState = {

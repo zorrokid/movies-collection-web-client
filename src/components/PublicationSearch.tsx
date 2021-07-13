@@ -1,26 +1,27 @@
 import styled from "styled-components";
-import { useDispatch } from 'react-redux'
-import { useDebounce } from 'use-debounce';
+import { useDispatch, useSelector } from 'react-redux'
 import { getPublicationsAction } from "../redux/actions/applicationActions";
 import { useEffect, useState } from "react";
+import { selectSearchConditions } from '../redux/selectors/publicationsSelector';
 
 const SearchByNameField = styled.input`
 `;
 
 export const PublicationSearch = () => {
-    
     const dispatch = useDispatch();
+    const searchConditions = useSelector(selectSearchConditions);
+    const [searchPhrase, setSearchPhrase] = useState(searchConditions.searchPhrase);
 
-    const [searchText, setSearchText] = useState('');
-    const [dispatchValue] = useDebounce(searchText, 1000);
+    const triggerSearch = () => dispatch(getPublicationsAction({ searchPhrase }));
 
-    // usecallback-hook
-    
-    useEffect(() => {
-        if (dispatchValue.length > 3) {
-            dispatch(getPublicationsAction(dispatchValue))
-        }
-    }, [dispatchValue]);
-
-    return <SearchByNameField onChange={(e) => setSearchText(e.target.value)} autoFocus />;
+    return (
+        <>
+            <SearchByNameField 
+                onChange={(e) => setSearchPhrase(e.target.value)} 
+                value={searchPhrase}
+                autoFocus 
+            />
+            <button onClick={triggerSearch}>Fetch</button>
+        </>
+    );
 }

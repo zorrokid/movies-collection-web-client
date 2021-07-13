@@ -1,17 +1,9 @@
 import { buildUri } from '../utils/uriBuilder';
+import { fetchAsync } from '../utils/fetchUtil';
+import { SearchConditions } from '../models/searchConditions';
 
 const publicationsUri = buildUri('Publications');
 
-export const fetchPublications : any = async (searchString: string, token: string) => {
-    const headers = {
-        Authorization: `Bearer ${token}`
-    };
-    const init: RequestInit = {
-        headers
-    };
-    let url = new URL(publicationsUri);
-    url.searchParams.set('search', searchString);
-    const response = await fetch(url.toString(), init);
-    return response.json();
-};
+export const fetchPublications : any = async (searchConditions: SearchConditions, token: string) => 
+    fetchAsync(publicationsUri, 'POST', searchConditions, token);
 
