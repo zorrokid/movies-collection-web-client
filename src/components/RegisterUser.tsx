@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { IUser } from "../models/user";
+import { User } from "../models/user";
 import { registerUserAction } from "../redux/actions/userActions";
 
 export const RegisterUser = () => {
@@ -14,7 +14,7 @@ export const RegisterUser = () => {
     const saveUser = () => {
         if (missingData) return;
 
-        const user: IUser = {
+        const user: User = {
             firstName,
             lastName,
             userName,

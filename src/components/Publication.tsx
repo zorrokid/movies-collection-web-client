@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { IPublication } from '../models/publication';
+import { Publication } from '../models/publication';
 import { PublicationItems } from './PublicationItems';
 import { Icon } from './Icon';
 import { FlagIcon } from './FlagIcon';
@@ -19,15 +19,16 @@ const IconsContainer = styled.div`
 `;
 
 interface IPublicationProps {
-    item: IPublication;
+    item: Publication;
 }
 
-export const Publication = (props: IPublicationProps) => {
+export const PublicationCard = (props: IPublicationProps) => {
     const {item} = props;
     return (
         <ItemContainer>
             <ItemContent>{item.originalTitle}</ItemContent>
             <ItemContent>{item.localTitle}</ItemContent>
+            <ItemContent>{item.barcode}</ItemContent>
             <IconsContainer>
                 <Icon disabled={!item.isVerified} infoText="verified" icon=""></Icon>
                 <Icon disabled={!item.isRental} infoText="rental" icon=""></Icon>

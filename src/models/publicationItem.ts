@@ -1,4 +1,4 @@
-export interface IPublicationItem {
+export interface PublicationItem {
     productionOriginalTitle: string;
     title: string;
 }

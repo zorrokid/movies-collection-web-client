@@ -1,8 +1,8 @@
 import styled from 'styled-components';
-import { IPublicationItem } from '../models/publicationItem';
+import { PublicationItem } from '../models/publicationItem';
 
 interface IPublicationItemsProps {
-    items: IPublicationItem[]
+    items: PublicationItem[]
 }
 
 const PublicationItemsContainer = styled.ul`
@@ -17,7 +17,7 @@ export const PublicationItems = (props: IPublicationItemsProps) => {
     return (
         <PublicationItemsContainer>
             {
-                props.items.map((item: IPublicationItem, index) => 
+                props.items.map((item: PublicationItem, index) => 
                     <PublicationItemContainer key={index}>
                         { item.productionOriginalTitle }
                     </PublicationItemContainer>

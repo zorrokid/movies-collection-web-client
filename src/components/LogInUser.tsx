@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { logInUserAction } from "../redux/actions/userActions";
-import { ILogIn } from '../models/login'
+import { LogIn } from '../models/login'
 
 export const LogInUser = () => {
     const [userName, setUserName] = useState('');
@@ -12,7 +12,7 @@ export const LogInUser = () => {
     const logInUser = () => {
         if (missingData) return;
 
-        const login: ILogIn = {
+        const login: LogIn = {
             userName,
             password
         };

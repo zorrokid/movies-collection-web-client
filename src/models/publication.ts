@@ -1,6 +1,6 @@
-import { IPublicationItem } from "./publicationItem";
+import { PublicationItem } from "./publicationItem";
 
-export interface IPublication {
+export interface Publication {
     id: number;
     originalTitle: string;
     localTitle: string;
@@ -15,5 +15,5 @@ export interface IPublication {
     notes: string;
     hasTwoSidedCover: boolean;
     hasBooklet: boolean;
-    publicationItems: IPublicationItem[];
+    publicationItems: PublicationItem[];
 }

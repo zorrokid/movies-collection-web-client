@@ -1,7 +1,7 @@
 import { useSelector } from 'react-redux'
 import styled from 'styled-components';
 import { selectPublications } from '../redux/selectors/publicationsSelector';
-import { Publication } from './Publication';
+import { PublicationCard } from './Publication';
 
 const ItemsContainer = styled.div`
     margin: 30px;
@@ -15,7 +15,7 @@ export const Publications = () => {
 
     return (
         <ItemsContainer>
-            {publications.map((publication, index) => <Publication key={index} item={publication} />)}
+            {publications.map((publication, index) => <PublicationCard key={index} item={publication} />)}
         </ItemsContainer>
     );
 };
