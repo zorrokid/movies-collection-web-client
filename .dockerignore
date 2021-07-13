@@ -4,3 +4,5 @@ launch.json
 .gitignore
 README.md
 .vscode
+.env.sample
+.env
