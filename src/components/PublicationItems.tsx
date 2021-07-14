@@ -1,28 +1,17 @@
-import styled from 'styled-components';
+import { List, ListItem } from "@material-ui/core";
 import { PublicationItem } from '../models/publicationItem';
 
 interface IPublicationItemsProps {
     items: PublicationItem[]
 }
 
-const PublicationItemsContainer = styled.ul`
-`;
-
-const PublicationItemContainer = styled.li`
-    list-style: none;
-`;
-
-
-export const PublicationItems = (props: IPublicationItemsProps) => {
-    return (
-        <PublicationItemsContainer>
-            {
-                props.items.map((item: PublicationItem, index) => 
-                    <PublicationItemContainer key={index}>
-                        { item.productionOriginalTitle }
-                    </PublicationItemContainer>
-                )
-            }
-        </PublicationItemsContainer>
-    );
-}
+export const PublicationItems = (props: IPublicationItemsProps) => 
+    <List>
+    {
+        props.items.map((item: PublicationItem, index) => 
+            <ListItem key={index}>
+                {item.productionOriginalTitle}
+            </ListItem>
+        )
+    }
+    </List>;

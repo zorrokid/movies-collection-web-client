@@ -39,6 +39,9 @@
     "webpack-dev-server": "^3.11.2"
   },
   "dependencies": {
+    "@material-ui/core": "^4.12.1",
+    "@material-ui/icons": "^4.11.2",
+    "@material-ui/styles": "^4.11.4",
     "@reduxjs/toolkit": "^1.5.1",
     "flag-icon-css": "^3.5.0",
     "lodash": "^4.17.21",

@@ -1,11 +1,11 @@
-import styled from "styled-components";
+import Button from '@material-ui/core/Button';
+import { TextField } from "@material-ui/core";
+import Container from '@material-ui/core/Container';
 import { useDispatch, useSelector } from 'react-redux'
 import { getPublicationsAction } from "../redux/actions/applicationActions";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { selectSearchConditions } from '../redux/selectors/publicationsSelector';
 
-const SearchByNameField = styled.input`
-`;
 
 export const PublicationSearch = () => {
     const dispatch = useDispatch();
@@ -15,13 +15,14 @@ export const PublicationSearch = () => {
     const triggerSearch = () => dispatch(getPublicationsAction({ searchPhrase }));
 
     return (
-        <>
-            <SearchByNameField 
+        <Container>
+            <TextField 
                 onChange={(e) => setSearchPhrase(e.target.value)} 
                 value={searchPhrase}
-                autoFocus 
+                autoFocus
+                size="medium" 
             />
-            <button onClick={triggerSearch}>Fetch</button>
-        </>
+            <Button onClick={triggerSearch} variant="contained">Fetch</Button>
+        </Container>
     );
 }
