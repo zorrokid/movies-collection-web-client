@@ -4,6 +4,7 @@ import { SearchConditions } from '../../models/searchConditions';
 import { fetchPublications } from '../../services/publicationsService';
 import { addPublicationsAction, getPublicationsAction, setSearchConditionsAction } from '../actions/applicationActions';
 import { selectUser } from '../selectors/userSelectors';
+import { history } from '../../routing/history';
 
 function* getPublications(action: any) {
     const searchConditions: SearchConditions = action.payload;
@@ -15,6 +16,7 @@ function* getPublications(action: any) {
     yield put(setSearchConditionsAction(action.payload));
     const publications = yield call(fetchPublications, action.payload, user.token);
     yield put(addPublicationsAction(publications));
+    history.push('/results');
 }
 
 function* publicationsSaga() {
