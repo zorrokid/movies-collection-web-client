@@ -14,11 +14,12 @@ interface IPublicationProps {
 
 export const PublicationCard = (props: IPublicationProps) => {
     const { publication } = props;
+    const title = publication.localTitle ? publication.localTitle : publication.originalTitle;
+    const subTitle = publication.localTitle ? publication.originalTitle : "";
     return (
         <Card>
-            <CardHeader title={publication.originalTitle} />
+            <CardHeader title={title} subheader={subTitle} />
             <CardContent>
-                <Box>{publication.localTitle}</Box>
                 <Box>{publication.barcode}</Box>
                 <Box>
                     <ConditionIcon conditionClassId={publication.conditionClassId} />
@@ -28,7 +29,7 @@ export const PublicationCard = (props: IPublicationProps) => {
                     <Icon disabled={!publication.hasTwoSidedCover} infoText="2-sided cover" icon=""></Icon>
                     <Icon disabled={!publication.hasHologram} infoText="hologram" icon=""></Icon>
                     <Icon disabled={!publication.hasBooklet} infoText="booklet" icon=""></Icon>
-                    <FlagIcon countryCode={publication.countryCode} />
+                    <FlagIcon countryCodes={publication.countryCodes} />
                 </Box>
                 <PublicationItems items={publication.publicationItems} />
             </CardContent>
