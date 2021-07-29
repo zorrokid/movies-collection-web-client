@@ -20,7 +20,6 @@ export const PublicationCard = (props: IPublicationProps) => {
             <CardContent>
                 <Box>{publication.localTitle}</Box>
                 <Box>{publication.barcode}</Box>
-                <Box>Condition: {publication.conditionClassName}</Box>
                 <Box>
                     <ConditionIcon conditionClassId={publication.conditionClassId} />
                     <Icon disabled={!publication.isVerified} infoText="verified" icon=""></Icon>
