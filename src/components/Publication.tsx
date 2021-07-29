@@ -29,7 +29,7 @@ export const PublicationCard = (props: IPublicationProps) => {
                     <Icon disabled={!publication.hasTwoSidedCover} infoText="2-sided cover" icon=""></Icon>
                     <Icon disabled={!publication.hasHologram} infoText="hologram" icon=""></Icon>
                     <Icon disabled={!publication.hasBooklet} infoText="booklet" icon=""></Icon>
-                    <FlagIcon countryCodes={publication.countryCodes} />
+                    <FlagIcon countryCodes={publication.countryCodes} isVerified={publication.isVerified} />
                 </Box>
                 <PublicationItems items={publication.publicationItems} />
             </CardContent>
