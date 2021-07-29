@@ -9,7 +9,7 @@ export const ResultsBar = () => {
     return (
         <AppBar position="sticky">
             <Toolbar>
-                <IconButton onClick={() => history.goBack()}>
+                <IconButton onClick={() => history.goBack()} color="inherit">
                     <ArrowBack />
                 </IconButton>
             </Toolbar>

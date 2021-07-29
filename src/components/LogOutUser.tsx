@@ -6,5 +6,5 @@ export const LogOutUser = () => {
     const dispatch = useDispatch();
     const logoutUser = () => dispatch(logOutUserAction());
 
-    return <Button onClick={logoutUser}>Log out</Button>;
+    return <Button onClick={logoutUser} color="inherit">Log out</Button>;
 }

@@ -11,8 +11,8 @@ import { history } from '../routing/history';
 import { useEffect } from 'react';
 import { getUserFromStoreAction } from '../redux/actions/userActions';
 import { MessageSection } from './MessageSection';
-import { NoAuthMain } from './NoAuthMain';
 import { selectUser } from '../redux/selectors/userSelectors';
+import { AppBar } from './AppBar';
 
 const App = () => {
 
@@ -28,6 +28,7 @@ const App = () => {
             <CssBaseline />
             <Container>
                 <Paper>
+                    <AppBar />
                     <MessageSection />
                     <Switch>
                         <Route path="/register">
@@ -41,7 +42,6 @@ const App = () => {
                         </Route>
                         <Route path="/">
                         { user && <PublicationSearch /> }
-                        { !user && <NoAuthMain />}
                         </Route>
                     </Switch>
                 </Paper>
@@ -51,4 +51,3 @@ const App = () => {
 }
     
 export default App;
-

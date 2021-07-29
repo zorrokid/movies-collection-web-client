@@ -18,7 +18,7 @@ export const PublicationSearch = () => {
     const triggerSearch = () => dispatch(getPublicationsAction({ searchPhrase }));
 
     return (
-        <Container>
+        <>
             <MainBar />
             <TextField 
                 onChange={(e) => setSearchPhrase(e.target.value)} 
@@ -29,6 +29,6 @@ export const PublicationSearch = () => {
             <Fab onClick={triggerSearch}>
                 <SearchIcon />
             </Fab>
-        </Container>
+        </>
     );
 }

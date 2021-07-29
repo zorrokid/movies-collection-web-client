@@ -8,7 +8,7 @@ import { LogInButton } from './LogInButton';
 import { useSelector } from 'react-redux';
 import { selectUser } from '../redux/selectors/userSelectors';
 import { makeStyles } from '@material-ui/core/styles';
-
+ 
 const useStyles = makeStyles((theme) => ({
     root: {
       flexGrow: 1,

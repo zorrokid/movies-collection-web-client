@@ -1,10 +1,8 @@
 import { useSelector } from "react-redux";
 import { selectError } from '../redux/selectors/systemSelectors';
-import Box from '@material-ui/core/Box';
+import Alert from '@material-ui/lab/Alert';
 
 export const MessageSection = () => {
-
     const error = useSelector(selectError);
-
-    return  error && <Box>{ error.Message }</Box> || null;
+    return  error && <Alert severity="error">{ error.Message }</Alert> || null;
 }

@@ -4,7 +4,9 @@ import { PublicationItems } from './PublicationItems';
 import { Icon } from './Icon';
 import { FlagIcon } from './FlagIcon';
 import Card from '@material-ui/core/Card';
+import CardHeader from '@material-ui/core/CardHeader';
 import CardContent from '@material-ui/core/CardContent';
+import { ConditionIcon } from './icon-components/ConditionIcon';
 
 const ItemContent = styled.div`
 `;
@@ -20,11 +22,13 @@ export const PublicationCard = (props: IPublicationProps) => {
     const {item} = props;
     return (
         <Card>
+            <CardHeader title={item.originalTitle} />
             <CardContent>
-                <ItemContent>{item.originalTitle}</ItemContent>
                 <ItemContent>{item.localTitle}</ItemContent>
                 <ItemContent>{item.barcode}</ItemContent>
+                <ItemContent>Condition: {item.conditionClassName}</ItemContent>
                 <IconsContainer>
+                    <ConditionIcon conditionClass={item.ConditionClassId} />
                     <Icon disabled={!item.isVerified} infoText="verified" icon=""></Icon>
                     <Icon disabled={!item.isRental} infoText="rental" icon=""></Icon>
                     <Icon disabled={!item.hasSlipCover} infoText="slip cover" icon=""></Icon>
