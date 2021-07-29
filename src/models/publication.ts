@@ -5,7 +5,7 @@ export interface Publication {
     originalTitle: string;
     localTitle: string;
     isVerified: boolean;
-    countryCode: string;
+    countryCodes: string[];
     barcode: string;
     caseTypeName: string;
     conditionClassName: string;
