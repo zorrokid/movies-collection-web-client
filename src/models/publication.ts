@@ -9,7 +9,7 @@ export interface Publication {
     barcode: string;
     caseTypeName: string;
     conditionClassName: string;
-    ConditionClassId: number;
+    conditionClassId: number;
     hasSlipCover: boolean;
     hasHologram: boolean;
     isRental: boolean;

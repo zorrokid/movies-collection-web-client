@@ -7,32 +7,27 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMehBlank } from '@fortawesome/free-solid-svg-icons';
 
 export interface ConditionIconProps {
-    conditionClass: number;
+    conditionClassId: number;
 }
 
 
 
-export const ConditionIcon = (props: ConditionIconProps) => {
- 
-    const getIcon = (conditionClass: number) =>  {
-        if (conditionClass === ConditionClassEnum.Excellent || 
-            conditionClass === ConditionClassEnum.Good ||
-            conditionClass === ConditionClassEnum.New) return <SentimentVerySatisfiedIcon />;
+export const ConditionIcon = (props: ConditionIconProps)  => {
 
-        if (conditionClass === ConditionClassEnum.Fair) return <SentimentSatisfiedIcon />;
+    const getIconData = (conditionClassId: number): [string, any] =>  {
+        if (conditionClassId === ConditionClassEnum.Excellent || 
+            conditionClassId === ConditionClassEnum.Good ||
+            conditionClassId === ConditionClassEnum.New) return ['green', <SentimentVerySatisfiedIcon color="inherit" />];
 
-        if (conditionClass === ConditionClassEnum.Poor) return <SentimentDissatisfiedIcon />;
+        if (conditionClassId === ConditionClassEnum.Fair) return ['yellow', <SentimentSatisfiedIcon color="inherit" />];
 
-        if (conditionClass === ConditionClassEnum.Bad) return <SentimentVeryDissatisfiedIcon />;
+        if (conditionClassId === ConditionClassEnum.Poor) return ['red', <SentimentDissatisfiedIcon />];
 
-        return <FontAwesomeIcon icon={faMehBlank}/>;
+        if (conditionClassId === ConditionClassEnum.Bad) return ['red', <SentimentVeryDissatisfiedIcon />];
+
+        return ['disabled', <FontAwesomeIcon icon={faMehBlank}/>];
     }
 
-    const icon = getIcon(props.conditionClass);
-
-    return (
-        <>
-            Condition: {icon}
-        </>
-    );
+    const iconData = getIconData(props.conditionClassId);
+    return <div style={{color: iconData[0]}}>{iconData[1]}</div>;
 }

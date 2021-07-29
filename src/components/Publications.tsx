@@ -9,7 +9,7 @@ export const Publications = () => {
 
     return (
         <Paper>
-            {publications.map((publication, index) => <PublicationCard key={index} item={publication} />)}
+            {publications.map((publication, index) => <PublicationCard key={index} publication={publication} />)}
         </Paper>
     );
 };
